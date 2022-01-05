@@ -18,3 +18,6 @@ def Profile(request):
 def signout(request):
     return HttpResponse("This is the signout page!")
 
+def dev_info(request):
+    return render(request, 'dev_info.html')
+

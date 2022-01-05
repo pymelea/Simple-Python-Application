@@ -19,8 +19,8 @@ My Site<span style="color:#4267B2">.</span></div>
         <i class="fas fa-bars"></i>
       </label>
       <ul>
-<li><a class="active" href="#">Log in</a></li>
-<li><a href="#">Developer Info</a></li>
+<li><a class="active" href="/signin/">Log in</a></li>
+<li><a href="/dev_info/">Developer Info</a></li>
 </ul>
 </nav>
     <div class="content">
@@ -32,7 +32,11 @@ Python Application</h2>
 <br>
 <h3>-- Made for the beginners --<br>
 <br>
-<button type="submit" class="button start">Sign Up</button>
+<form action="/signup/" method="post">
+  {% csrf_token %}
+  <button type="submit" class="button start"> Sign Up </button>
+</form>
+
 <br><br>
 </div>
 <br>

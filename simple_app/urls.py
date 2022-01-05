@@ -23,5 +23,6 @@ urlpatterns = [
     path('', app_views.home, name='app-home'),
     path('myprofile/', app_views.Profile, name='app-profile'),
     path('signout/', app_views.signout, name='app-signout'),
+    path('dev_info/', app_views.dev_info, name='dev-info'),
     path('admin/', admin.site.urls),
 ]
