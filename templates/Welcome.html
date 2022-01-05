@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Mysite | Welcome</title>
+  <link rel = "icon" href = "{% static '/images/django.svg' %}" 
+        type = "image/x-icon">
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+
+</head>
+<body>
+    <nav>
+      <div class="logo">
+My Site<span style="color:#4267B2">.</span></div>
+<input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+<li><a class="active" href="#">Log in</a></li>
+<li><a href="#">Developer Info</a></li>
+</ul>
+</nav>
+    <div class="content">
+      <div>
+      	<br><br><h2>
+Simple and <span style="color:#4267B2">Easy</span><br>
+Python Application</h2>
+</div>
+<br>
+<h3>-- Made for the beginners --<br>
+<br>
+<button type="submit" class="button start">Sign Up</button>
+<br><br>
+</div>
+<br>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>
