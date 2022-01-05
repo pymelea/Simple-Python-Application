@@ -1,5 +1,44 @@
 {% load static %}
 
+<script type="text/javascript" >
+
+    function validateUserName(username){
+      var usernameRegex = /^[a-zA-Z0-9]+$/;
+      return usernameRegex.test(username);
+    }
+    
+    function isValidEmail(email) {
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    }
+    
+    function validate()
+    {
+        const x = document.getElementById("valid_warning");
+    
+        //Getting elementts
+        var username = document.signin.username.value;
+        var password = document.signin.password.value;
+    
+        if (validateUserName(username) == false)
+        {
+            document.getElementById("valid_warning").innerHTML = " ";
+            document.getElementById("valid_warning").innerHTML = 'Username cannot be empty and must be letters and numbers!' + x.innerHTML;
+            return false;
+        }
+    
+        if(password.length < 6)
+        {
+            document.getElementById("valid_warning").innerHTML = " ";
+            document.getElementById("valid_warning").innerHTML = 'Password is too short!!' + x.innerHTML;
+            return false;
+        }
+    
+        return true;
+    }
+    
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +72,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Sign In</h2>
-                        <form method="POST" class="register-form" id="login-form" action="/signin/">
+                        <form method="POST" class="register-form" name="signin" id="login-form" action="/signin/">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -47,8 +86,9 @@
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
+                            <p id="valid_warning" style="color: red;"></p>
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" onclick="return validate()"/>
                             </div>
                         </form>
                         <div class="social-login">
@@ -63,7 +103,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 
     <!-- JS -->
