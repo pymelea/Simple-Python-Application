@@ -47,7 +47,21 @@ def home(request):
         return render(request, 'welcome.html')
 
 def Profile(request):
-    return HttpResponse("This is the profile page!")
+    if request.user.is_authenticated:
+        name = 'undefined'
+        username = request.user.username
+        email = request.user.email
+        
+        context = {
+            'name' : name,
+            'username' : username,
+            'email' : email,
+        }
+
+        return render(request, 'profile.html', context)
+    else:    
+        return render(request, 'welcome.html')
+    
 
 def signout(request):
     if request.user.is_authenticated:
