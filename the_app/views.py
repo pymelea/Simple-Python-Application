@@ -60,7 +60,7 @@ def Profile(request):
 
         return render(request, 'profile.html', context)
     else:    
-        return render(request, 'welcome.html')
+        return redirect('app-home')
     
 
 def signout(request):
