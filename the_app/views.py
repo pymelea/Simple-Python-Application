@@ -20,7 +20,7 @@ def signup(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponse("Your login complete")
+                return render(request, 'timeline.html')
 
 
     return render(request, 'signup.html')
@@ -35,14 +35,14 @@ def signin(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponse('your login complete')
+                return render(request, 'timeline.html')
 
 
     return render(request, 'signin.html')
 
 def home(request):
     if request.user.is_authenticated:
-        return HttpResponse("your are authenticated!")
+        return render(request, 'timeline.html')
     else:    
         return render(request, 'welcome.html')
 
