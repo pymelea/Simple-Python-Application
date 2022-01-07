@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+import time
 
 # Create your views here.
 
@@ -66,8 +67,8 @@ def Profile(request):
 def signout(request):
     if request.user.is_authenticated:
         logout(request)
-    
-    return HttpResponse("Signout properly")
+    return render(request, 'signout.html')
+
 
 def dev_info(request):
     return render(request, 'dev_info.html')
